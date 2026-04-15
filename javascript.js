@@ -1,7 +1,7 @@
 let contenedor = document.querySelector(".contenedor");
 let boton = document.querySelector(".boton")
 let cantidadActual = 0;
-
+/*Falta implementar limite de 100 cuadros.*/
 
 function crearGrilla(cantidad=50){
 /*Formula para el lado de un cuadro.*/
@@ -21,11 +21,9 @@ function crearGrilla(cantidad=50){
 
 function eliminarGrilla(){
     let nodo = contenedor.childNodes;
-    console.log(nodo);
-    for(let i=cantidadActual**2; i>=0; i--){
+    for(let i=(cantidadActual**2)-1; i>=0; i--){
         contenedor.removeChild(nodo[i]);
     }
-    console.log(nodo);
 }
 
 contenedor.addEventListener("mouseover",(evento) => {
@@ -37,9 +35,12 @@ contenedor.addEventListener("mouseover",(evento) => {
 })
 
 boton.addEventListener("click",()=>{
+        console.log(contenedor.childNodes);
         eliminarGrilla();
+        console.log(contenedor.childNodes);
         let cantidad = +prompt("Ingresar cantidad de cuadros", 1);
         crearGrilla(cantidad);
+        console.log(contenedor.childNodes)
 })
 
 crearGrilla();
