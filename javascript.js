@@ -35,12 +35,13 @@ contenedor.addEventListener("mouseover",(evento) => {
 })
 
 boton.addEventListener("click",()=>{
-        console.log(contenedor.childNodes);
         eliminarGrilla();
-        console.log(contenedor.childNodes);
         let cantidad = +prompt("Ingresar cantidad de cuadros", 1);
+        while (cantidad > 100){
+            cantidad = +prompt("Maximo permitido 100 cuadro!",100);
+        }
         crearGrilla(cantidad);
-        console.log(contenedor.childNodes)
+        
 })
 
 crearGrilla();
